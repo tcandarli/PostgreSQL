@@ -55,3 +55,27 @@ limit 1);`)
     .catch(error => {
         console.log(error)
     });
+
+for (let i = 3; i < 8; i++) {
+    db.one(`select first_name, last_name
+from customer
+where customer_id in (${i});`)
+        .then(result => {
+            console.log(`${result.first_name} ${result.last_name}`);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+db.any(`select first_name, last_name
+from customer
+where customer_id in (3, 4, 5, 6, 7, 8);`)
+    .then(result => {
+        result.forEach(element => {
+            console.log(`${element.first_name} ${element.last_name}`);
+        });
+    })
+    .catch(error => {
+        console.log(error);
+    });
