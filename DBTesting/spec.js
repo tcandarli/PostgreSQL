@@ -79,3 +79,14 @@ where customer_id in (3, 4, 5, 6, 7, 8);`)
     .catch(error => {
         console.log(error);
     });
+
+db.any(`select title from film
+where title like 'N%'`)
+    .then(result => {
+        result.forEach(element => {
+            console.log(`${element.title}`);
+        });
+    })
+    .catch(error => {
+        console.log(error);
+    });
