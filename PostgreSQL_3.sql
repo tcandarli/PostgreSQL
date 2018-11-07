@@ -15,16 +15,23 @@ group by rating
 2-Show all employees who work in any one of these department id 90,60, 100, 130, 120
 */
 
-
+select *
+from employees
+where department_id in (90, 60, 100, 130, 120)
 
 /************************************
 3-Show all job_id and average salary who work as any of these jobs IT_PROG, SA_REP, FI_ACCOUNT,AD_VP 
 */
 
+select job_id, avg(salary)
+from employees
+where job_id in ('IT_PROG', 'SA_REP', 'FI_ACCOUNT', 'AD_VP')
+group by job_id;
 
 /************************************
 4-Show all employees whose last name ends with 'a'
 */
+
 
 
 /*************************************
