@@ -14,10 +14,10 @@ describe('Amazon Database testing', () => {
     var arr = [];
 
     it('should get the film names from database and search in amazon.com', () => {
-        browser.waitForAngularEnabled = false;
+        browser.waitForAngularEnabled(false);
         browser.get("https://amazon.com");
 
-        db.any(`select title from film where title like 'N%'`)
+        db.any(`select title from film where title like 'Z%'`)
             .then(result => {
                 arr = result;
 
@@ -32,7 +32,7 @@ describe('Amazon Database testing', () => {
                     element(by.css("#nav-search > form > div.nav-right > div > input")).click();
                     browser.sleep(2000);
                     browser.navigate().back();
-                })
-            })
+                });
+            });
     });
 });
