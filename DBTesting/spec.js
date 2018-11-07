@@ -10,7 +10,7 @@ var cn = {
 
 var db = pgp(cn);
 
-db.one(`SELECT title from film where film_id=133`)
+db.one(`SELECT title FROM film WHERE film_id=133`)
     .then(result => {
         console.log(result)
     })
