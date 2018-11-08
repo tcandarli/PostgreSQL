@@ -6,12 +6,19 @@
 1- Display country_id, country name, region id , region name from hr database
 */
 
+SELECT country_id, country_name, c.region_id, region_name
+FROM countries AS "c" INNER JOIN regions AS "r"
+ON c.region_id = r.region_id;
 
 
 /***********************************
 2- Display All cities , country names from hr database
 */
 
+select city, country_name
+from locations AS "l" inner join countries as "c"
+ON l.country_id = c.country_id
+order by country_name;
 
 /************************************
 3-Display the first and last name, department name, city, and state province for each employee.
